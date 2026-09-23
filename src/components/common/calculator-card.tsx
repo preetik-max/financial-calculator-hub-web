@@ -16,7 +16,7 @@ import {
   Wallet,
 } from "lucide-react";
 
-import type { Calculator as CalculatorType } from "@/data/calculators";
+import type { CalculatorItem } from "@/data/calculators";
 
 const iconMap = {
   TrendingUp,
@@ -36,7 +36,7 @@ const iconMap = {
 };
 
 interface CalculatorCardProps {
-  calculator: CalculatorType;
+  calculator: CalculatorItem;
 }
 
 export function CalculatorCard({

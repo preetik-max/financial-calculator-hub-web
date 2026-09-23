@@ -1,13 +1,13 @@
-import type { CalculatorDefinition } from "@/lib/calculators/types";
+import type { CalculatorItem } from "@/data/calculators";
 
 interface CalculatorFaqProps {
-  faq: CalculatorDefinition["faq"];
+  faq?: CalculatorItem["faq"];
 }
 
 export function CalculatorFaq({
-  faq,
+  faq = [],
 }: CalculatorFaqProps) {
-  if (!faq.length) {
+  if (faq.length === 0) {
     return null;
   }
 

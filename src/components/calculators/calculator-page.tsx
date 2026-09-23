@@ -7,15 +7,15 @@ import { CalculatorFaq } from "@/components/calculators/calculator-faq";
 import { CalculatorForm } from "@/components/calculators/calculator-form";
 import { CalculatorResult } from "@/components/calculators/calculator-result";
 import { CalculatorChart } from "@/components/calculators/calculator-chart";
+import type { CalculatorItem } from "@/data/calculators";
 import type {
-  CalculatorDefinition,
   CalculatorLineData,
   CalculatorPieData,
   CalculatorResultItem,
 } from "@/lib/calculators/types";
 
 interface CalculatorPageProps {
-  calculator: CalculatorDefinition;
+  calculator: CalculatorItem;
   values: Record<string, number>;
   onChange: (id: string, value: number) => void;
   results: CalculatorResultItem[];
