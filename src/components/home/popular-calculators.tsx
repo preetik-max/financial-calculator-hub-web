@@ -6,7 +6,25 @@ import { SectionHeading } from "@/components/common/section-heading";
 import { calculators } from "@/data/calculators";
 
 export function PopularCalculators() {
-  const popularCalculators = calculators.slice(0, 8);
+  const popularSlugs = [
+    "personal-loan",
+    "emi",
+    "fd",
+    "sip",
+    "rd",
+    "cagr",
+    "lumpsum",
+    "ppf",
+  ];
+
+  const popularCalculators = popularSlugs
+    .map((slug) =>
+      calculators.find((calculator) => calculator.slug === slug),
+    )
+    .filter(
+      (calculator): calculator is (typeof calculators)[number] =>
+        Boolean(calculator),
+    );
 
   return (
     <section

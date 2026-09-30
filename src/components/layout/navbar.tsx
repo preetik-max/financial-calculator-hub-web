@@ -10,25 +10,30 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5"
+          className="flex items-center gap-3"
           onClick={() => setMobileOpen(false)}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 text-sm font-bold text-white">
-            F
-          </span>
+          <img
+            src="/images/finora-labs-logo.png"
+            alt="Finora Labs"
+            className="h-10 w-10 rounded-xl object-cover"
+          />
 
           <div className="leading-tight">
             <div className="text-sm font-bold text-slate-950">
               Finora Labs
             </div>
+
             <div className="text-[11px] text-slate-500">
               Financial Calculator Hub
             </div>
           </div>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-7 md:flex">
           <Link
             href="/calculators"
@@ -74,6 +79,7 @@ export function Navbar() {
           </Link>
         </nav>
 
+        {/* Mobile Menu Button */}
         <button
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -84,6 +90,7 @@ export function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       {mobileOpen && (
         <div className="border-t border-slate-200 bg-white md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-4 py-4 sm:px-6">

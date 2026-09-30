@@ -1003,7 +1003,7 @@ export const calculators: CalculatorItem[] = [
     fields: [],
 
     explanation:
-      "The age calculator determines the elapsed time between a date of birth and the current date. A dedicated date input will be added to the calculator interface.",
+      "The age calculator determines your exact age in years, months and days from your date of birth.",
 
     formula:
       "Age = Current Date − Date of Birth",

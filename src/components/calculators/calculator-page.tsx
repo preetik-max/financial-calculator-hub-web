@@ -22,6 +22,10 @@ interface CalculatorPageProps {
   pieData?: CalculatorPieData[];
   lineData?: CalculatorLineData[];
   formula?: string;
+  pieTitle?: string;
+  pieDescription?: string;
+  chartTitle?: string;
+  chartDescription?: string;
 }
 
 export function CalculatorPage({
@@ -32,7 +36,95 @@ export function CalculatorPage({
   pieData = [],
   lineData = [],
   formula,
+  pieTitle = "Investment breakdown",
+  pieDescription = "See how the total value is divided between the components of the calculation.",
+  chartTitle = "Growth over time",
+  chartDescription = "Estimated value based on the assumptions entered above.",
 }: CalculatorPageProps) {
+  /*
+   * AGE CALCULATOR
+   *
+   * Age has no normal calculator fields, so provide
+   * a dedicated Date of Birth selector here.
+   */
+  const today = new Date();
+  const currentYear = today.getFullYear();
+
+  const selectedDate = values.dateOfBirth
+    ? new Date(values.dateOfBirth)
+    : null;
+
+  const selectedDay = selectedDate
+    ? selectedDate.getDate()
+    : 0;
+
+  const selectedMonth = selectedDate
+    ? selectedDate.getMonth() + 1
+    : 0;
+
+  const selectedYear = selectedDate
+    ? selectedDate.getFullYear()
+    : 0;
+
+  const daysInSelectedMonth =
+    selectedYear > 0 && selectedMonth > 0
+      ? new Date(
+          selectedYear,
+          selectedMonth,
+          0,
+        ).getDate()
+      : 31;
+
+  const setDatePart = (
+    part: "day" | "month" | "year",
+    value: number,
+  ) => {
+    const current = selectedDate
+      ? new Date(selectedDate)
+      : new Date(
+          currentYear - 25,
+          0,
+          1,
+        );
+
+    let year = current.getFullYear();
+    let month = current.getMonth();
+    let day = current.getDate();
+
+    if (part === "day") {
+      day = value;
+    }
+
+    if (part === "month") {
+      month = value - 1;
+    }
+
+    if (part === "year") {
+      year = value;
+    }
+
+    const maxDay = new Date(
+      year,
+      month + 1,
+      0,
+    ).getDate();
+
+    day = Math.min(day, maxDay);
+
+    const nextDate = new Date(
+      year,
+      month,
+      day,
+    );
+
+    nextDate.setHours(0, 0, 0, 0);
+
+    onChange(
+      "dateOfBirth",
+      nextDate.getTime(),
+    );
+  };
+
   return (
     <main>
       <section className="border-b border-slate-200 bg-white">
@@ -69,11 +161,191 @@ export function CalculatorPage({
                 Calculator
               </h2>
 
-              <CalculatorForm
-                fields={calculator.fields}
-                values={values}
-                onChange={onChange}
-              />
+              {calculator.slug === "age" ? (
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-800">
+                      Date of Birth
+                    </label>
+
+                    <p className="mt-1 text-xs text-slate-500">
+                      Select your date of birth.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-3">
+                    <div>
+                      <label
+                        htmlFor="age-day"
+                        className="mb-2 block text-xs font-semibold text-slate-600"
+                      >
+                        Day
+                      </label>
+
+                      <select
+                        id="age-day"
+                        value={selectedDay || ""}
+                        onChange={(event) =>
+                          setDatePart(
+                            "day",
+                            Number(event.target.value),
+                          )
+                        }
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm font-medium text-slate-900 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
+                      >
+                        <option value="">
+                          Day
+                        </option>
+
+                        {Array.from(
+                          {
+                            length:
+                              daysInSelectedMonth,
+                          },
+                          (_, index) => (
+                            <option
+                              key={index + 1}
+                              value={index + 1}
+                            >
+                              {index + 1}
+                            </option>
+                          ),
+                        )}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="age-month"
+                        className="mb-2 block text-xs font-semibold text-slate-600"
+                      >
+                        Month
+                      </label>
+
+                      <select
+                        id="age-month"
+                        value={selectedMonth || ""}
+                        onChange={(event) =>
+                          setDatePart(
+                            "month",
+                            Number(event.target.value),
+                          )
+                        }
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm font-medium text-slate-900 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
+                      >
+                        <option value="">
+                          Month
+                        </option>
+
+                        <option value="1">
+                          January
+                        </option>
+                        <option value="2">
+                          February
+                        </option>
+                        <option value="3">
+                          March
+                        </option>
+                        <option value="4">
+                          April
+                        </option>
+                        <option value="5">
+                          May
+                        </option>
+                        <option value="6">
+                          June
+                        </option>
+                        <option value="7">
+                          July
+                        </option>
+                        <option value="8">
+                          August
+                        </option>
+                        <option value="9">
+                          September
+                        </option>
+                        <option value="10">
+                          October
+                        </option>
+                        <option value="11">
+                          November
+                        </option>
+                        <option value="12">
+                          December
+                        </option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="age-year"
+                        className="mb-2 block text-xs font-semibold text-slate-600"
+                      >
+                        Year
+                      </label>
+
+                      <select
+                        id="age-year"
+                        value={selectedYear || ""}
+                        onChange={(event) =>
+                          setDatePart(
+                            "year",
+                            Number(event.target.value),
+                          )
+                        }
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm font-medium text-slate-900 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-100"
+                      >
+                        <option value="">
+                          Year
+                        </option>
+
+                        {Array.from(
+                          {
+                            length: 121,
+                          },
+                          (_, index) =>
+                            currentYear - index,
+                        ).map((year) => (
+                          <option
+                            key={year}
+                            value={year}
+                          >
+                            {year}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {selectedDate && (
+                    <div className="rounded-xl bg-slate-50 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Selected Date
+                      </p>
+
+                      <p className="mt-1 text-base font-bold text-slate-900">
+                        {String(selectedDay).padStart(
+                          2,
+                          "0",
+                        )}
+                        /
+                        {String(selectedMonth).padStart(
+                          2,
+                          "0",
+                        )}
+                        /
+                        {selectedYear}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <CalculatorForm
+                  fields={calculator.fields}
+                  values={values}
+                  onChange={onChange}
+                />
+              )}
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7">
@@ -87,16 +359,25 @@ export function CalculatorPage({
                 </h2>
               </div>
 
-              <CalculatorResult results={results} />
+              {results.length > 0 ? (
+                <CalculatorResult results={results} />
+              ) : (
+                <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
+                  <p className="text-sm font-medium text-slate-600">
+                    Select your date of birth to calculate your age.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
-          {(pieData.length > 0 || lineData.length > 0) && (
+          {(pieData.length > 0 ||
+            lineData.length > 0) && (
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
               {pieData.length > 0 && (
                 <CalculatorChart
-                  title="Investment breakdown"
-                  description="See how the total value is divided between your investment and estimated returns."
+                  title={pieTitle}
+                  description={pieDescription}
                   type="pie"
                   pieData={pieData}
                 />
@@ -104,8 +385,8 @@ export function CalculatorPage({
 
               {lineData.length > 0 && (
                 <CalculatorChart
-                  title="Growth over time"
-                  description="Estimated value based on the assumptions entered above."
+                  title={chartTitle}
+                  description={chartDescription}
                   type="line"
                   lineData={lineData}
                 />
