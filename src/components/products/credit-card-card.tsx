@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CreditCard } from "@/data/credit-cards";
 
 interface CreditCardCardProps {
@@ -7,23 +8,30 @@ interface CreditCardCardProps {
 export function CreditCardCard({ card }: CreditCardCardProps) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="flex min-h-52 items-center justify-center bg-slate-50 p-5">
-        <img
+      <div className="relative flex min-h-52 items-center justify-center bg-slate-50 p-5">
+        <Image
           src={card.image}
           alt={card.name}
+          width={320}
+          height={200}
+          sizes="(max-width: 768px) 100vw, 320px"
           className="max-h-44 w-full object-contain transition duration-300 group-hover:scale-[1.03]"
         />
       </div>
+
       <div className="p-5">
         <p className="text-xs font-semibold uppercase tracking-wider text-green-600">
           {card.bank} Credit Card
         </p>
+
         <h2 className="mt-2 min-h-12 text-base font-bold leading-6 text-slate-950">
           {card.name}
         </h2>
+
         <p className="mt-2 text-sm leading-6 text-slate-500">
           Explore the card details and check eligibility on the partner application page.
         </p>
+
         <a
           href={card.affiliateUrl}
           target="_blank"

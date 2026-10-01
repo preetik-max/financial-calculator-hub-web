@@ -1,5 +1,5 @@
 export function AdsenseScript() {
-  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
   if (!client) {
     return null;

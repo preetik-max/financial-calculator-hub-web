@@ -9,12 +9,7 @@ export function PopularCalculators() {
   const popularSlugs = [
     "personal-loan",
     "emi",
-    "fd",
     "sip",
-    "rd",
-    "cagr",
-    "lumpsum",
-    "ppf",
   ];
 
   const popularCalculators = popularSlugs
@@ -36,7 +31,7 @@ export function PopularCalculators() {
           <SectionHeading
             eyebrow="Financial Tools"
             title="Popular Calculators"
-            description="Simple calculators to help you understand investments, loans, savings and everyday financial decisions."
+            description="Start with our most useful calculators for loans, monthly payments and investments."
           />
 
           <Link
@@ -47,7 +42,7 @@ export function PopularCalculators() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {popularCalculators.map((calculator) => (
             <CalculatorCard
               key={calculator.slug}

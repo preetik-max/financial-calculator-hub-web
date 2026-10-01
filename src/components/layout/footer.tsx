@@ -10,17 +10,13 @@ export function Footer() {
               <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 text-sm font-bold text-white">
                 F
               </span>
-
               <div>
-                <div className="font-bold text-slate-950">
-                  Finora Labs
-                </div>
+                <div className="font-bold text-slate-950">Finora Labs</div>
                 <div className="text-xs text-slate-500">
                   Simple Tools. Smarter Financial Decisions.
                 </div>
               </div>
             </div>
-
             <p className="mt-5 max-w-md text-sm leading-6 text-slate-500">
               Financial Calculator Hub provides practical calculators and
               educational resources to help users understand everyday
@@ -32,33 +28,17 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-slate-950">
               Calculators
             </h3>
-
             <div className="mt-4 space-y-3">
-              <Link
-                href="/calculators/sip"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
+              <Link href="/calculators/sip" className="block text-sm text-slate-500 hover:text-slate-950">
                 SIP Calculator
               </Link>
-
-              <Link
-                href="/calculators/emi"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
+              <Link href="/calculators/emi" className="block text-sm text-slate-500 hover:text-slate-950">
                 EMI Calculator
               </Link>
-
-              <Link
-                href="/calculators/fd"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
+              <Link href="/calculators/fd" className="block text-sm text-slate-500 hover:text-slate-950">
                 FD Calculator
               </Link>
-
-              <Link
-                href="/calculators"
-                className="block text-sm font-medium text-green-600 hover:text-green-700"
-              >
+              <Link href="/calculators" className="block text-sm font-medium text-green-600 hover:text-green-700">
                 All Calculators →
               </Link>
             </div>
@@ -66,36 +46,26 @@ export function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold text-slate-950">
-              Company
+              Company & Policies
             </h3>
-
             <div className="mt-4 space-y-3">
-              <Link
-                href="/about"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
+              <Link href="/about" className="block text-sm text-slate-500 hover:text-slate-950">
                 About Us
               </Link>
-
-              <Link
-                href="/contact"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
+              <Link href="/contact" className="block text-sm text-slate-500 hover:text-slate-950">
                 Contact
               </Link>
-
-              <Link
-                href="/privacy"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
+              <Link href="/privacy" className="block text-sm text-slate-500 hover:text-slate-950">
                 Privacy Policy
               </Link>
-
-              <Link
-                href="/terms"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
+              <Link href="/terms" className="block text-sm text-slate-500 hover:text-slate-950">
                 Terms
+              </Link>
+              <Link href="/disclaimer" className="block text-sm text-slate-500 hover:text-slate-950">
+                Disclaimer
+              </Link>
+              <Link href="/affiliate-disclosure" className="block text-sm text-slate-500 hover:text-slate-950">
+                Affiliate Disclosure
               </Link>
             </div>
           </div>
