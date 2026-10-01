@@ -9,6 +9,13 @@ import {
 import { Container } from "@/components/common/container";
 
 export function PersonalLoanOffer() {
+  const whatsappMessage =
+    "Hello Finora Labs, I am interested in a personal loan. Please share more information.";
+
+  const whatsappUrl = `https://wa.me/918318950758?text=${encodeURIComponent(
+    whatsappMessage,
+  )}`;
+
   return (
     <section className="bg-slate-50 py-20 sm:py-24">
       <Container>
@@ -66,19 +73,16 @@ export function PersonalLoanOffer() {
                   <Calculator size={17} />
                 </Link>
 
-                <button
-                  type="button"
-                  disabled
-                  className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-sm font-semibold text-slate-400"
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-green-200 bg-green-50 px-5 py-3.5 text-sm font-semibold text-green-700 transition hover:bg-green-100"
                 >
                   Apply for Personal Loan
                   <ArrowRight size={17} />
-                </button>
+                </a>
               </div>
-
-              <p className="mt-3 text-xs text-slate-400">
-                Personal loan application link will be added here.
-              </p>
             </div>
 
             {/* Right Visual */}
