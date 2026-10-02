@@ -7,107 +7,32 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 text-sm font-bold text-white">
-                F
-              </span>
-
-              <div>
-                <div className="font-bold text-slate-950">
-                  Finora Labs
-                </div>
-                <div className="text-xs text-slate-500">
-                  Simple Tools. Smarter Financial Decisions.
-                </div>
-              </div>
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 text-sm font-bold text-white">F</span>
+              <div><div className="font-bold text-slate-950">Finora Labs</div><div className="text-xs text-slate-500">Simple Tools. Smarter Financial Decisions.</div></div>
             </div>
-
-            <p className="mt-5 max-w-md text-sm leading-6 text-slate-500">
-              Financial Calculator Hub provides practical calculators and
-              educational resources to help users understand everyday
-              financial decisions.
-            </p>
+            <p className="mt-5 max-w-md text-sm leading-6 text-slate-500">Financial Calculator Hub provides practical calculators, file utilities and educational resources to help users understand everyday financial decisions.</p>
           </div>
-
           <div>
-            <h3 className="text-sm font-semibold text-slate-950">
-              Calculators
-            </h3>
-
+            <h3 className="text-sm font-semibold text-slate-950">Calculators & Tools</h3>
             <div className="mt-4 space-y-3">
-              <Link
-                href="/calculators/sip"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
-                SIP Calculator
-              </Link>
-
-              <Link
-                href="/calculators/emi"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
-                EMI Calculator
-              </Link>
-
-              <Link
-                href="/calculators/fd"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
-                FD Calculator
-              </Link>
-
-              <Link
-                href="/calculators"
-                className="block text-sm font-medium text-green-600 hover:text-green-700"
-              >
-                All Calculators →
-              </Link>
+              <Link href="/calculators/sip" className="block text-sm text-slate-500 hover:text-slate-950">SIP Calculator</Link>
+              <Link href="/calculators/emi" className="block text-sm text-slate-500 hover:text-slate-950">EMI Calculator</Link>
+              <Link href="/calculators/fd" className="block text-sm text-slate-500 hover:text-slate-950">FD Calculator</Link>
+              <Link href="/calculators" className="block text-sm text-slate-500 hover:text-slate-950">All Calculators →</Link>
+              <Link href="/tools" className="block text-sm font-semibold text-green-700 hover:text-green-800">PDF & Image Tools →</Link>
             </div>
           </div>
-
           <div>
-            <h3 className="text-sm font-semibold text-slate-950">
-              Company
-            </h3>
-
+            <h3 className="text-sm font-semibold text-slate-950">Company</h3>
             <div className="mt-4 space-y-3">
-              <Link
-                href="/about"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
-                About Us
-              </Link>
-
-              <Link
-                href="/contact"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
-                Contact
-              </Link>
-
-              <Link
-                href="/privacy"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
-                Privacy Policy
-              </Link>
-
-              <Link
-                href="/terms"
-                className="block text-sm text-slate-500 hover:text-slate-950"
-              >
-                Terms
-              </Link>
+              <Link href="/about" className="block text-sm text-slate-500 hover:text-slate-950">About Us</Link>
+              <Link href="/contact" className="block text-sm text-slate-500 hover:text-slate-950">Contact</Link>
+              <Link href="/privacy" className="block text-sm text-slate-500 hover:text-slate-950">Privacy Policy</Link>
+              <Link href="/terms" className="block text-sm text-slate-500 hover:text-slate-950">Terms</Link>
             </div>
           </div>
         </div>
-
-        <div className="mt-12 border-t border-slate-100 pt-6">
-          <p className="text-xs leading-5 text-slate-500">
-            © {new Date().getFullYear()} Finora Labs. All rights reserved.
-            Financial calculators provide estimates for educational purposes
-            and should not be treated as financial advice.
-          </p>
-        </div>
+        <div className="mt-12 border-t border-slate-100 pt-6"><p className="text-xs leading-5 text-slate-500">© {new Date().getFullYear()} Finora Labs. All rights reserved. Financial calculators provide estimates for educational purposes and should not be treated as financial advice.</p></div>
       </div>
     </footer>
   );
