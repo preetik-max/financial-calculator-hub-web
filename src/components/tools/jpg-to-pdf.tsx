@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowUp, ArrowDown, Download, FileImage, LockKeyhole, Plus, Printer, Trash2 } from "lucide-react";
+import { ArrowLeft, ArrowUp, ArrowDown, FileImage, LockKeyhole, Plus, Printer, Trash2 } from "lucide-react";
 
 type ImageItem = { id: string; name: string; url: string };
 
@@ -13,8 +13,9 @@ export function JpgToPdfTool() {
   const [fit, setFit] = useState<"contain" | "cover">("contain");
   const [error, setError] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const urlsRef = useRef<string[]>([]);
 
-  useEffect(() => () => images.forEach((image) => URL.revokeObjectURL(image.url)), [images]);
+  useEffect(() => () => urlsRef.current.forEach((url) => URL.revokeObjectURL(url)), []);
 
   function addFiles(files: FileList | null) {
     if (!files) return;
@@ -23,7 +24,12 @@ export function JpgToPdfTool() {
     if (selected.some((file) => file.size > 20 * 1024 * 1024)) { setError("Each image must be smaller than 20 MB."); return; }
     if (images.length + selected.length > 30) { setError("You can add up to 30 images per document."); return; }
     setError("");
-    setImages((current) => [...current, ...selected.map((file) => ({ id: crypto.randomUUID(), name: file.name, url: URL.createObjectURL(file) }))]);
+    const additions = selected.map((file) => {
+      const url = URL.createObjectURL(file);
+      urlsRef.current.push(url);
+      return { id: crypto.randomUUID(), name: file.name, url };
+    });
+    setImages((current) => [...current, ...additions]);
   }
 
   function move(index: number, direction: -1 | 1) {
