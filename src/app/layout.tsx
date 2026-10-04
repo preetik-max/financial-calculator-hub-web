@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   },
   description:
     "Free financial calculators for SIP, EMI, FD, RD, CAGR, PPF, SWP, loans, GST, tax and more from Finora Labs.",
+  other: {
+    "mitgo-verification": "1c4bf478-f836-4bdf-a49b-d6643f8836da",
+  },
 };
 
 export default function RootLayout({
