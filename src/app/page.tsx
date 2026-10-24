@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { PopularCalculators } from "@/components/home/popular-calculators";
+import { GoldSilverHomeSection } from "@/components/home/gold-silver-home-section";
 
 export default function Home() {
   return (
@@ -7,6 +8,8 @@ export default function Home() {
       <Hero />
 
       <PopularCalculators />
+
+      <GoldSilverHomeSection />
 
       <section
         id="app"
