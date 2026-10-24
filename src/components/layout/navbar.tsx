@@ -38,6 +38,20 @@ export function Navbar() {
           </Link>
 
           <Link
+            href="/#gold-calculator"
+            className="rounded-lg border border-amber-500/50 px-3 py-2 text-sm font-semibold text-amber-600 transition hover:bg-amber-50"
+          >
+            Gold
+          </Link>
+
+          <Link
+            href="/#silver-calculator"
+            className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100"
+          >
+            Silver
+          </Link>
+
+          <Link
             href="/financial-products"
             className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
           >
@@ -93,6 +107,22 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
             >
               Calculators
+            </Link>
+
+            <Link
+              href="/#gold-calculator"
+              className="border-b border-slate-100 py-3 text-sm font-semibold text-amber-600"
+              onClick={() => setMobileOpen(false)}
+            >
+              Gold Calculator
+            </Link>
+
+            <Link
+              href="/#silver-calculator"
+              className="border-b border-slate-100 py-3 text-sm font-semibold text-slate-700"
+              onClick={() => setMobileOpen(false)}
+            >
+              Silver Calculator
             </Link>
 
             <Link
