@@ -38,14 +38,14 @@ export function Navbar() {
           </Link>
 
           <Link
-            href="/#gold-calculator"
+            href="/#gold-silver"
             className="rounded-lg border border-amber-500/50 px-3 py-2 text-sm font-semibold text-amber-600 transition hover:bg-amber-50"
           >
             Gold
           </Link>
 
           <Link
-            href="/#silver-calculator"
+            href="/#gold-silver"
             className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100"
           >
             Silver
